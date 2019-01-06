@@ -1,0 +1,11 @@
+C:\Users\tedal\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.dll.config
+C:\Users\tedal\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.dll
+C:\Users\tedal\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL\bin\Debug\AspNet.Identity.MySQL.pdb
+C:\Users\tedal\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\tedal\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL\bin\Debug\MySql.Data.dll
+C:\Users\tedal\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\tedal\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.csprojAssemblyReference.cache
+C:\Users\tedal\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.csproj.CoreCompileInputs.cache
+C:\Users\tedal\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.csproj.CopyComplete
+C:\Users\tedal\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.dll
+C:\Users\tedal\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL\obj\Debug\AspNet.Identity.MySQL.pdb
