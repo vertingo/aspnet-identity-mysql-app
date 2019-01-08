@@ -152,35 +152,109 @@ If you get a dialog box that asks if you should trust the IIS Express certificat
 
 ## Add a model class
 
-
 * In **Solution Explorer**, right-click the project. Select **Add** > **New Folder**. Name the folder *Models*.
 
 * Right-click the *Models* folder and select **Add** > **Class**. Name the class *TodoItem* and select **Add**.
 
 * Replace the template code with the following code:
 
-[!code-csharp[](first-web-api/samples/2.2/TodoApi/Models/TodoItem.cs)]
+```
+namespace TodoApi.Models
+{
+    public class TodoItem
+    {
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public bool IsComplete { get; set; }
+    }
+}
+
+```
 
 ## Add a database context
-
 
 * Right-click the *Models* folder and select **Add** > **Class**. Name the class *TodoContext* and click **Add**.
 
 * Replace the template code with the following code:
 
-[!code-csharp[](first-web-api/samples/2.2/TodoApi/Models/TodoContext.cs)]
 
+```
+using Microsoft.EntityFrameworkCore;
+
+namespace TodoApi.Models
+{
+    public class TodoContext : DbContext
+    {
+        public TodoContext(DbContextOptions<TodoContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<TodoItem> TodoItems { get; set; }
+    }
+}
+
+```
 
 ## Register the database context
 
-
 Update *Startup.cs* with the following highlighted code:
 
-[!code-csharp[](first-web-api/samples/2.2/TodoApi/Startup1.cs?highlight=5,8,25-26&name=snippet_all)]
+```
+// Unused usings removed
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using TodoApi.Models;
 
+namespace TodoAp
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the 
+        //container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<TodoContext>(opt =>
+                opt.UseInMemoryDatabase("TodoList"));
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP 
+        //request pipeline.
+#region snippet_configure
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                // The default HSTS value is 30 days. You may want to change this for 
+                // production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseMvc();
+        }
+#endregion
+    }
+}
+```
 
 ## Add a controller
-
 
 * Right-click the *Controllers* folder.
 * Select **Add** > **New Item**.
@@ -189,15 +263,68 @@ Update *Startup.cs* with the following highlighted code:
 
 * Replace the template code with the following code:
 
-  [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController2.cs?name=snippet_todo1)]
-  
+```
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using TodoApi.Models;
+
+#region TodoController
+namespace TodoApi.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TodoController : ControllerBase
+    {
+        private readonly TodoContext _context;
+        #endregion
+
+        public TodoController(TodoContext context)
+        {
+            _context = context;
+
+            if (_context.TodoItems.Count() == 0)
+            {
+                // Create a new TodoItem if collection is empty,
+                // which means you can't delete all TodoItems.
+                _context.TodoItems.Add(new TodoItem { Name = "Item1" });
+                _context.SaveChanges();
+            }
+        }
+    }
+}
+
+```
   
 ## Add Get methods
 
-
 To provide an API that retrieves to-do items, add the following methods to the `TodoController` class:
 
-[!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetAll)]
+```
+// GET: api/Todo
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
+        {
+            return await _context.TodoItems.ToListAsync();
+        }
+
+        // GET: api/Todo/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
+        {
+            var todoItem = await _context.TodoItems.FindAsync(id);
+
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+
+            return todoItem;
+        }
+
+```
 
 These methods implement two GET endpoints:
 
