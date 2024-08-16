@@ -1,51 +1,58 @@
 ![Image](https://raw.githubusercontent.com/vertingo/Easy_Admin_YouTube_Newsletter_Firebase/master/web/assets/images/github/vertin_go_website.jpg)
-### ?? Apporter votre soutien au projet :heart: pour de futures Èvolutions!
+### ?? Apporter votre soutien au projet :heart: pour de futures √©volutions!
 [![GitHub stars](https://img.shields.io/github/stars/vertingo/screenshott.svg?style=social&label=Star)](https://github.com/vertingo/AspNet_Identity_MySQL) [![GitHub forks](https://img.shields.io/github/forks/vertingo/screenshott.svg?style=social&label=Fork)](https://github.com/vertingo/AspNet_Identity_MySQL/fork) [![GitHub watchers](https://img.shields.io/github/watchers/vertingo/screenshott.svg?style=social&label=Watch)](https://github.com/vertingo/AspNet_Identity_MySQL) [![GitHub followers](https://img.shields.io/github/followers/vertingo.svg?style=social&label=Follow)](https://github.com/vertingo)
 [![Twitter Follow](https://img.shields.io/twitter/follow/Vertin_Go.svg?style=social)](https://twitter.com/Vertin_Go)
+[![Facebook](https://img.shields.io/badge/Facebook-vertingo-blue?style=social&logo=facebook)](https://www.facebook.com/vertingo)
+[![YouTube Subscribe](https://img.shields.io/youtube/channel/subscribers/UC2g_-ipVjit6ZlACPWG4JvA?style=social)](https://www.youtube.com/channel/UC2g_-ipVjit6ZlACPWG4JvA?sub_confirmation=1)
+
+# üåê Projet Front-Back End MultiEnv Stack Docker
+![App Progress Status](https://img.shields.io/badge/Status-Finished-0520b7.svg?style=plastic)
+[![Download](https://img.shields.io/badge/Download-Repo-brightgreen)](https://github.com/vertingo/aspnet-identity-mysql-app/archive/refs/heads/main.zip)
+
+<!-- BEGIN LATEST DOWNLOAD BUTTON -->
+[![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/vertingo/aspnet-identity-mysql-app/archive/1.0.2.zip)
+<!-- END LATEST DOWNLOAD BUTTON -->
 
 # DotNet(https://visualstudio.microsoft.com/fr/downloads/)
 
-# Creation d'une App MVC + implementer un espace de stockage personnalisÈ sur Azure(Persistance sans Entity FrameWork)
+# Creation d'une App MVC + implementer un espace de stockage personnalis√© sur Azure(Persistance sans Entity FrameWork)
 
+- Cr√©er une base de donn√©e MySql sur Azure: IdentityMySQLDatabase
 
-- CrÈer une base de donnÈe MySql sur Azure: IdentityMySQLDatabase
+- Pour s'y connecter depuis l'interface en local r√©cup√©rer le SGBD suivant: https://dev.mysql.com/downloads/windows/installer/
 
-- Pour s'y connecter depuis l'interface en local rÈcupÈrer le SGBD suivant: https://dev.mysql.com/downloads/windows/installer/
-
-- Ensuite il faut tÈlÈcharger le storage provider ‡ l'url suivante il nous sera utile pour la suite:(https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/).
+- Ensuite il faut t√©l√©charger le storage provider √† l'url suivante il nous sera utile pour la suite:(https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/).
 
 - Copiez le contenu du fichier MySQLIdentity.sql contenu l'emplacement suivant:  C:\Users\nom_user\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL
 
-  coller son contenu dans la requÍte et exÈcuter la requÍte afin de crÈer la base de donnÈe sur Azure!
-
+  coller son contenu dans la requ√™te et ex√©cuter la requ√™te afin de cr√©er la base de donn√©e sur Azure!
 
 - Ouvrer le projet C:\Users\nom_user\source\repos\aspnet\sourceCode\aspnet\Samples\Identity\AspNet.Identity.MySQL et builder le!
 
-- Maintenant il faut crÈer le modËle d'application MVC pour cela clique-droit sur **AspNet.Identity.MySQL** et **ajouter**, **new project**
+- Maintenant il faut cr√©er le mod√®le d'application MVC pour cela clique-droit sur **AspNet.Identity.MySQL** et **ajouter**, **new project**
 
 - Dans la boite de dialogue **Add New Project** selectionner **Visual C#** puis **Web** et enfin **ASP.NET Web Application** 
 
 - Appeler votre projet **IdentityMySQLDemo**. Dans la boite de dialogue de votre **New ASP.NET Project** selectionner le MVC template avec les options
 
-  par dÈfauts (qui inclut **Individual User Accounts** comme mÈthode d'authentification) et cliquer **OK**
+  par d√©fauts (qui inclut **Individual User Accounts** comme m√©thode d'authentification) et cliquer **OK**
+
+- Cliquez avec le bouton droit de la souris sur votre projet IdentityMySQLDemo et s√©lectionner **G√©rer les packages NuGet**.
+
+- Dans la bo√Æte de dialogue de recherche, tapez **Identity.EntityFramework**. S√©lectionnez ce package dans la liste des r√©sultats et cliquez sur **D√©sinstaller**.
+
+- Vous serez invit√© √† d√©sinstaller le package de d√©pendance EntityFramework. Cliquez sur Oui car nous ne ferons plus ce paquet sur cette application.
+
+- Cliquez avec le bouton droit sur le projet IdentityMySQLDemo, s√©lectionnez **Ajouter**, **R√©f√©rence, Solution, Projets;** s√©lectionner le projet AspNet.Identity.MySQL et cliquez sur **OK**.
 
 
-- Cliquez avec le bouton droit de la souris sur votre projet IdentityMySQLDemo et sÈlectionner **GÈrer les packages NuGet**.
-
-- Dans la boÓte de dialogue de recherche, tapez **Identity.EntityFramework**. SÈlectionnez ce package dans la liste des rÈsultats et cliquez sur **DÈsinstaller**.
-
-- Vous serez invitÈ ‡ dÈsinstaller le package de dÈpendance EntityFramework. Cliquez sur Oui car nous ne ferons plus ce paquet sur cette application.
-
-- Cliquez avec le bouton droit sur le projet IdentityMySQLDemo, sÈlectionnez **Ajouter**, **RÈfÈrence, Solution, Projets;** sÈlectionner le projet AspNet.Identity.MySQL et cliquez sur **OK**.
+- Dans le projet IdentityMySQLDemo, remplacez toutes les r√©f√©rences √†(Dans IdentityConfig.cs et IdentityModel.cs):
+¬†¬†¬†¬†`using Microsoft.AspNet.Identity.EntityFramework;`
+¬†¬†¬†avec
+¬†¬†¬†¬†`using AspNet.Identity.MySQL;`        
 
 
-- Dans le projet IdentityMySQLDemo, remplacez toutes les rÈfÈrences ‡(Dans IdentityConfig.cs et IdentityModel.cs):
-††††`using Microsoft.AspNet.Identity.EntityFramework;`
-†††avec
-††††`using AspNet.Identity.MySQL;`        
-
-
-- Dans IdentityModels.cs, dÈfinissez **ApplicationDbContext** pour qu'il dÈrive de **MySqlDatabase** et incluez un constructeur qui accepte un seul paramËtre avec le nom de la connexion. Code ci-dessous
+- Dans IdentityModels.cs, d√©finissez **ApplicationDbContext** pour qu'il d√©rive de **MySqlDatabase** et incluez un constructeur qui accepte un seul param√®tre avec le nom de la connexion. Code ci-dessous
 
 ```
 public class ApplicationDbContext : MySQLDatabase
@@ -62,7 +69,7 @@ public class ApplicationDbContext : MySQLDatabase
 }
 ```
 
-- Ouvrez le fichier IdentityConfig.cs. Dans la mÈthode **ApplicationUserManager.Create**, remplacez l'instanciation UserManager par le code suivant:
+- Ouvrez le fichier IdentityConfig.cs. Dans la m√©thode **ApplicationUserManager.Create**, remplacez l'instanciation UserManager par le code suivant:
 
 ```
 var manager = new ApplicationUserManager(
@@ -70,24 +77,24 @@ var manager = new ApplicationUserManager(
     context.Get<ApplicationDbContext>() as MySQLDatabase));
 ```
 
-- Ouvrez le fichier web.config et remplacez la chaÓne DefaultConnection par cette entrÈe en remplaÁant les valeurs en surbrillance par la chaÓne de connexion de la base de donnÈes MySQL crÈÈe aux Ètapes prÈcÈdentes.
+- Ouvrez le fichier web.config et remplacez la cha√Æne DefaultConnection par cette entr√©e en rempla√ßant les valeurs en surbrillance par la cha√Æne de connexion de la base de donn√©es MySQL cr√©√©e aux √©tapes pr√©c√©dentes.
 
 <add name="DefaultConnection" connectionString="Database=IdentityMySQLDatabase;Data Source=127.0 0.1;User Id=root;Password=root" providerName="MySql.Data.MySqlClient" />
 
 
-## ExÈcutez l'application et connectez-vous ‡ la base de donnÈes MySQL
+## Ex√©cutez l'application et connectez-vous √† la base de donn√©es MySQL
 
-- Cliquez avec le bouton droit sur le projet **IdentityMySQLDemo** et sÈlectionnez **DÈfinir comme projet de dÈmarrage**.
+- Cliquez avec le bouton droit sur le projet **IdentityMySQLDemo** et s√©lectionnez **D√©finir comme projet de d√©marrage**.
 
-- Appuyez sur **Ctrl + F5** pour crÈer et exÈcuter l'application.
+- Appuyez sur **Ctrl + F5** pour cr√©er et ex√©cuter l'application.
 
 - Cliquez sur l'onglet **S'inscrire** en haut de la page.
 
 - Entrez un nouveau nom d'utilisateur et mot de passe puis cliquez sur **Enregistrer**
 
-- Le nouvel utilisateur est maintenant enregistrÈ et connectÈ
+- Le nouvel utilisateur est maintenant enregistr√© et connect√©
 
-- Retournez dans l'outil MySQL Workbench et examinez le contenu de la table **IdentityMySQLDatabase**. Inspectez le tableau des utilisateurs pour les entrÈes lorsque vous enregistrez de nouveaux utilisateurs
+- Retournez dans l'outil MySQL Workbench et examinez le contenu de la table **IdentityMySQLDatabase**. Inspectez le tableau des utilisateurs pour les entr√©es lorsque vous enregistrez de nouveaux utilisateurs
 
 
 # English Version
@@ -130,7 +137,7 @@ Steps to run project
 * Select the **ASP.NET Core Web Application** template. Name the project *TodoApi* and click **OK**.
 * In the **New ASP.NET Core Web Application - TodoApi** dialog, choose the ASP.NET Core version. Select the **API** template and click **OK**. Do **not** select **Enable Docker Support**.
 
-Changer de rÈpertoire avec cd et exÈcuter la commande suivante:
+Changer de r√©pertoire avec cd et ex√©cuter la commande suivante:
 
 ```
 dotnet new webapi -o TodoApi --force
@@ -373,23 +380,23 @@ This tutorial uses Postman to test the web API.
 
 # CU EntityFramework (Persistance avec EntityFramework)
 
-RÈcuperer le contenu du repository GitHub suivant: https://github.com/aspnet/ApiDocs
+R√©cuperer le contenu du repository GitHub suivant: https://github.com/aspnet/ApiDocs
 
-Executer le script .openpublishing.build dans une invite de commande PowerShell situÈ ‡ la racine dans le dossier ApiDocs-master:
+Executer le script .openpublishing.build dans une invite de commande PowerShell situ√© √† la racine dans le dossier ApiDocs-master:
 
-Ouvrez le projet situÈ ‡ l'emplacement suivant dans Visual Studio 2017(Docs-master\aspnetcore\data\ef-mvc\intro\samples\cu-final)
+Ouvrez le projet situ√© √† l'emplacement suivant dans Visual Studio 2017(Docs-master\aspnetcore\data\ef-mvc\intro\samples\cu-final)
 
-Taper ensuite la commande suivante pour initialiser la base de donnÈe avec Entity FrameWork!
+Taper ensuite la commande suivante pour initialiser la base de donn√©e avec Entity FrameWork!
 
 
 ```
 - dotnet ef database update
 ```
 
-# DÈmo du projet Web-Api
+# D√©mo du projet Web-Api
 
 
-Test du projet WebApiSample et requÍtage dans PostMan
+Test du projet WebApiSample et requ√™tage dans PostMan
 
 # SignalR
 
